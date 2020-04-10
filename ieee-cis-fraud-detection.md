@@ -1,13 +1,4 @@
----
-title: "IEEE-CIS Fraud Detection"
-date: 2019-10-10
-tags: [Kaggle, Fraud Detection, IEEE-CIS, machine learning, PCA]
-excerpt: "Can you detect fraud from customer transactions?"
-header:
-  overlay_image: "/images/ieee-cis-fraud-detection/home-page.jpg"
-  caption: "Photo by Arget on Unsplash"
-mathjax: "true"
----
+# IEEE-CIS Fraud Detection
 
 ## Overview
 
@@ -201,7 +192,7 @@ fc.T
 </table>
 </div>
 
-![png](/images/ieee-cis-fraud-detection/analysis_8_1.png)
+![png](/notebook_files/analysis_8_1.png)
 
 ### Fraud Transaction rate per day and per week
 
@@ -214,7 +205,7 @@ train_trn.groupby('_seq_day')['isFraud'].mean().to_frame().plot.line(ax=ax[0])
 train_trn.groupby('_seq_week')['isFraud'].mean().to_frame().plot.line(ax=ax[1])
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_10_1.png)
+![png](/notebook_files/analysis_10_1.png)
 
 ### Fraud transaction rate by weekday, hour, month-day, and year-month
 
@@ -238,7 +229,7 @@ train_trn.groupby('_day')['isFraud'].mean().to_frame().plot.bar(ax=ax[2])
 train_trn.groupby('_year_month')['isFraud'].mean().to_frame().plot.bar(ax=ax[3])
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_12_1.png)
+![png](/notebook_files/analysis_12_1.png)
 
 ### Fraud transaction rate by day
 
@@ -404,14 +395,14 @@ df.sort_values(by='count',ascending=False)[:10].T
 plt.scatter(df['count'], df['mean'], s=10)
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_16_1.png)
+![png](/notebook_files/analysis_16_1.png)
 
 ```python
 # transaction-count X fraud-count
 plt.scatter(df['count'], df['sum'], s=10)
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_17_1.png)
+![png](/notebook_files/analysis_17_1.png)
 
 ### Fraud transaction rate by weekday-hour
 
@@ -420,7 +411,7 @@ train_trn['_weekday_hour'] = train_trn['_weekday'].astype(str) + '_' + train_trn
 train_trn.groupby('_weekday_hour')['isFraud'].mean().to_frame().plot.line(figsize=(16,3))
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_19_1.png)
+![png](/notebook_files/analysis_19_1.png)
 
 ### Fraud rate by weekday
 
@@ -784,27 +775,27 @@ plotHistByFraud('id_10')
 plotHistByFraud('id_11')
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_33_0.png)
+![png](/notebook_files/analysis_33_0.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_33_1.png)
+![png](/notebook_files/analysis_33_1.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_33_2.png)
+![png](/notebook_files/analysis_33_2.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_33_3.png)
+![png](/notebook_files/analysis_33_3.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_33_4.png)
+![png](/notebook_files/analysis_33_4.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_33_5.png)
+![png](/notebook_files/analysis_33_5.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_33_6.png)
+![png](/notebook_files/analysis_33_6.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_33_7.png)
+![png](/notebook_files/analysis_33_7.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_33_8.png)
+![png](/notebook_files/analysis_33_8.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_33_9.png)
+![png](/notebook_files/analysis_33_9.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_33_10.png)
+![png](/notebook_files/analysis_33_10.png)
 
 ```python
 numid_cols = [f'id_{str(i).zfill(2)}' for i in range(1,12)]
@@ -866,7 +857,7 @@ plt.figure(figsize=(10, 5))
 sns.heatmap(train_id_trn[['isFraud','TransactionAmt']+numid_cols].corr(), annot=True, fmt='.2f')
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_35_1.png)
+![png](/notebook_files/analysis_35_1.png)
 
 ```python
 train_id_f1[['isFraud'] + numid_cols].head(10)
@@ -1264,23 +1255,23 @@ plotCategoryRateBar('id_19',10)
 plotCategoryRateBar('id_20',10)
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_39_0.png)
+![png](/notebook_files/analysis_39_0.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_39_1.png)
+![png](/notebook_files/analysis_39_1.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_39_2.png)
+![png](/notebook_files/analysis_39_2.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_39_3.png)
+![png](/notebook_files/analysis_39_3.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_39_4.png)
+![png](/notebook_files/analysis_39_4.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_39_5.png)
+![png](/notebook_files/analysis_39_5.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_39_6.png)
+![png](/notebook_files/analysis_39_6.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_39_7.png)
+![png](/notebook_files/analysis_39_7.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_39_8.png)
+![png](/notebook_files/analysis_39_8.png)
 
 ```python
 plotCategoryRateBar('id_21',20)
@@ -1295,25 +1286,25 @@ plotCategoryRateBar('id_29')
 plotCategoryRateBar('id_30',10)
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_40_0.png)
+![png](/notebook_files/analysis_40_0.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_40_1.png)
+![png](/notebook_files/analysis_40_1.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_40_2.png)
+![png](/notebook_files/analysis_40_2.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_40_3.png)
+![png](/notebook_files/analysis_40_3.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_40_4.png)
+![png](/notebook_files/analysis_40_4.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_40_5.png)
+![png](/notebook_files/analysis_40_5.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_40_6.png)
+![png](/notebook_files/analysis_40_6.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_40_7.png)
+![png](/notebook_files/analysis_40_7.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_40_8.png)
+![png](/notebook_files/analysis_40_8.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_40_9.png)
+![png](/notebook_files/analysis_40_9.png)
 
 ```python
 plotCategoryRateBar('id_31', 20)
@@ -1323,9 +1314,9 @@ train_id_f1['_id_31_ua'] = train_id_f1['id_31'].apply(lambda x: x.split()[0] if 
 plotCategoryRateBar('_id_31_ua', 10)
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_41_0.png)
+![png](/notebook_files/analysis_41_0.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_41_1.png)
+![png](/notebook_files/analysis_41_1.png)
 
 ```python
 plotCategoryRateBar('id_32')
@@ -1337,19 +1328,19 @@ plotCategoryRateBar('id_37')
 plotCategoryRateBar('id_38')
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_42_0.png)
+![png](/notebook_files/analysis_42_0.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_42_1.png)
+![png](/notebook_files/analysis_42_1.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_42_2.png)
+![png](/notebook_files/analysis_42_2.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_42_3.png)
+![png](/notebook_files/analysis_42_3.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_42_4.png)
+![png](/notebook_files/analysis_42_4.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_42_5.png)
+![png](/notebook_files/analysis_42_5.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_42_6.png)
+![png](/notebook_files/analysis_42_6.png)
 
 ### DeviceType, DeviceInfo
 
@@ -1358,9 +1349,9 @@ plotCategoryRateBar('DeviceType')
 plotCategoryRateBar('DeviceInfo',10)
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_44_0.png)
+![png](/notebook_files/analysis_44_0.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_44_1.png)
+![png](/notebook_files/analysis_44_1.png)
 
 ## Transaction Data
 
@@ -1435,7 +1426,7 @@ train_trn['TransactionDT'].hist(bins=20)
 test_trn['TransactionDT'].hist(bins=20)
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_50_1.png)
+![png](/notebook_files/analysis_50_1.png)
 
 ```python
 def appendLagDT(df):
@@ -1523,7 +1514,7 @@ pd.concat([train_trn_f0['_date_lag'].describe(),
 plotTrnLogHistByFraud('_date_lag')
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_53_0.png)
+![png](/notebook_files/analysis_53_0.png)
 
 ### TransactionAmt
 
@@ -1532,9 +1523,9 @@ plotTrnHistByFraud('TransactionAmt')
 plotTrnLogHistByFraud('TransactionAmt')
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_55_0.png)
+![png](/notebook_files/analysis_55_0.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_55_1.png)
+![png](/notebook_files/analysis_55_1.png)
 
 ```python
 amt_desc = pd.concat([train_trn_f0['TransactionAmt'].describe(), train_trn_f1['TransactionAmt'].describe()], axis=1)
@@ -1625,9 +1616,9 @@ plotTrnHistByFraud('_amt_lag')
 plotTrnCategoryRateBar('_amt_lag_sig')
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_58_0.png)
+![png](/notebook_files/analysis_58_0.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_58_1.png)
+![png](/notebook_files/analysis_58_1.png)
 
 ### ProductCD
 
@@ -1635,7 +1626,7 @@ plotTrnCategoryRateBar('_amt_lag_sig')
 plotTrnCategoryRateBar('ProductCD')
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_60_0.png)
+![png](/notebook_files/analysis_60_0.png)
 
 ```python
 cols = ['ProductCD','addr1','addr2','dist1','dist2']
@@ -2587,32 +2578,32 @@ train_trn[train_trn['card4']=='visa']['card1'].hist(bins=50)
 train_trn[train_trn['card4']=='mastercard']['card1'].hist(bins=50)
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_74_1.png)
+![png](/notebook_files/analysis_74_1.png)
 
 ```python
 train_trn[train_trn['card4']=='visa']['card2'].hist(bins=50)
 train_trn[train_trn['card4']=='mastercard']['card2'].hist(bins=50)
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_75_1.png)
+![png](/notebook_files/analysis_75_1.png)
 
 ```python
 plotTrnCategoryRateBar('card1', 15)
 plotTrnHistByFraud('card1', bins=30)
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_76_0.png)
+![png](/notebook_files/analysis_76_0.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_76_1.png)
+![png](/notebook_files/analysis_76_1.png)
 
 ```python
 plotTrnCategoryRateBar('card2', 15)
 plotTrnHistByFraud('card2', bins=30)
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_77_0.png)
+![png](/notebook_files/analysis_77_0.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_77_1.png)
+![png](/notebook_files/analysis_77_1.png)
 
 ```python
 train_trn_f0['_card1_card2'] = train_trn_f0['card1'].astype(str) + '_' + train_trn_f0['card2'].astype(str)
@@ -2621,31 +2612,31 @@ train_trn_f1['_card1_card2'] = train_trn_f1['card1'].astype(str) + '_' + train_t
 plotTrnCategoryRateBar('_card1_card2', 50, figsize=(15,3))
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_78_0.png)
+![png](/notebook_files/analysis_78_0.png)
 
 ```python
 plotTrnCategoryRateBar('card3', 10)
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_79_0.png)
+![png](/notebook_files/analysis_79_0.png)
 
 ```python
 plotTrnCategoryRateBar('card4')
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_80_0.png)
+![png](/notebook_files/analysis_80_0.png)
 
 ```python
 plotTrnCategoryRateBar('card5', 10)
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_81_0.png)
+![png](/notebook_files/analysis_81_0.png)
 
 ```python
 plotTrnCategoryRateBar('card6')
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_82_0.png)
+![png](/notebook_files/analysis_82_0.png)
 
 ```python
 print(len(train_trn))
@@ -2665,7 +2656,7 @@ vc = train_trn['card_n'].value_counts()
 vc[vc > 3000].plot.bar()
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_84_1.png)
+![png](/notebook_files/analysis_84_1.png)
 
 ```python
 train_trn.groupby(['card_n'])['isFraud'].mean().sort_values(ascending=False)
@@ -2698,9 +2689,9 @@ plotTrnCategoryRateBar('addr1', 20)
 plotTrnHistByFraud('addr1', bins=30)
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_88_0.png)
+![png](/notebook_files/analysis_88_0.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_88_1.png)
+![png](/notebook_files/analysis_88_1.png)
 
 ```python
 train_trn['addr1'].value_counts(dropna=False).to_frame().iloc[:10]
@@ -2779,7 +2770,7 @@ print('addr2 nunique:', train_trn['addr2'].nunique())
 
 > addr2 nunique: 74
 
-![png](/images/ieee-cis-fraud-detection/analysis_90_1.png)
+![png](/notebook_files/analysis_90_1.png)
 
 ```python
 train_trn['addr2'].value_counts(dropna=False).to_frame().iloc[:10]
@@ -2857,13 +2848,13 @@ train_trn['addr2'].value_counts(dropna=False).to_frame().iloc[:10]
 plotTrnCategoryRateBar('dist1', 20)
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_93_0.png)
+![png](/notebook_files/analysis_93_0.png)
 
 ```python
 plotTrnCategoryRateBar('dist2', 20)
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_94_0.png)
+![png](/notebook_files/analysis_94_0.png)
 
 ```python
 train_trn_f0['dist3'] = np.where(train_trn_f0['dist1'].isna(), train_trn_f0['dist2'], train_trn_f0['dist1'])
@@ -2873,9 +2864,9 @@ plotTrnCategoryRateBar('dist3', 20)
 plotTrnLogHistByFraud('dist3')
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_95_0.png)
+![png](/notebook_files/analysis_95_0.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_95_1.png)
+![png](/notebook_files/analysis_95_1.png)
 
 ### P_emaildomain, R_emaildomain
 
@@ -2884,9 +2875,9 @@ plotTrnCategoryRateBar('P_emaildomain',10)
 plotTrnCategoryRateBar('R_emaildomain',10)
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_97_0.png)
+![png](/notebook_files/analysis_97_0.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_97_1.png)
+![png](/notebook_files/analysis_97_1.png)
 
 ```python
 train_trn['P_emaildomain'].fillna('unknown',inplace=True)
@@ -3203,7 +3194,7 @@ ct = ct.sort_values(by='W')[-15:]
 ct.plot.barh(stacked=True, figsize=(12,4))
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_100_1.png)
+![png](/notebook_files/analysis_100_1.png)
 
 ### C1 - C14
 
@@ -3212,33 +3203,33 @@ for i in range(1,15):
     plotTrnCategoryRateBar(f'C{i}',10)
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_102_0.png)
+![png](/notebook_files/analysis_102_0.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_102_1.png)
+![png](/notebook_files/analysis_102_1.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_102_2.png)
+![png](/notebook_files/analysis_102_2.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_102_3.png)
+![png](/notebook_files/analysis_102_3.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_102_4.png)
+![png](/notebook_files/analysis_102_4.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_102_5.png)
+![png](/notebook_files/analysis_102_5.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_102_6.png)
+![png](/notebook_files/analysis_102_6.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_102_7.png)
+![png](/notebook_files/analysis_102_7.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_102_8.png)
+![png](/notebook_files/analysis_102_8.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_102_9.png)
+![png](/notebook_files/analysis_102_9.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_102_10.png)
+![png](/notebook_files/analysis_102_10.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_102_11.png)
+![png](/notebook_files/analysis_102_11.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_102_12.png)
+![png](/notebook_files/analysis_102_12.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_102_13.png)
+![png](/notebook_files/analysis_102_13.png)
 
 ```python
 train_trn[ccols].describe().loc[['count','mean','std','min','max']]
@@ -3375,7 +3366,7 @@ corr = train_trn[['isFraud'] + ccols].corr()
 sns.heatmap(corr, annot=True, fmt='.2f')
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_104_1.png)
+![png](/notebook_files/analysis_104_1.png)
 
 ### Cx & card
 
@@ -4086,35 +4077,35 @@ for i in range(1,16):
     plotTrnCategoryRateBar(f'D{i}',10)
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_110_0.png)
+![png](/notebook_files/analysis_110_0.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_110_1.png)
+![png](/notebook_files/analysis_110_1.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_110_2.png)
+![png](/notebook_files/analysis_110_2.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_110_3.png)
+![png](/notebook_files/analysis_110_3.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_110_4.png)
+![png](/notebook_files/analysis_110_4.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_110_5.png)
+![png](/notebook_files/analysis_110_5.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_110_6.png)
+![png](/notebook_files/analysis_110_6.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_110_7.png)
+![png](/notebook_files/analysis_110_7.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_110_8.png)
+![png](/notebook_files/analysis_110_8.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_110_9.png)
+![png](/notebook_files/analysis_110_9.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_110_10.png)
+![png](/notebook_files/analysis_110_10.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_110_11.png)
+![png](/notebook_files/analysis_110_11.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_110_12.png)
+![png](/notebook_files/analysis_110_12.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_110_13.png)
+![png](/notebook_files/analysis_110_13.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_110_14.png)
+![png](/notebook_files/analysis_110_14.png)
 
 ```python
 train_trn[dcols].describe().loc[['count','mean','std','min','max']]
@@ -4258,7 +4249,7 @@ plt.scatter(train_trn_f1['TransactionDT'], train_trn_f1['D1'], s=2, c='r')
 plt.scatter(test_trn['TransactionDT'], test_trn['D1'], s=2, c='g')
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_112_1.png)
+![png](/notebook_files/analysis_112_1.png)
 
 ```python
 plt.figure(figsize=(12,4))
@@ -4269,7 +4260,7 @@ plt.scatter(train_trn_f1['TransactionDT'], train_trn_f1['D15'], s=2, c='r')
 plt.scatter(test_trn['TransactionDT'], test_trn['D15'], s=2, c='g')
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_113_1.png)
+![png](/notebook_files/analysis_113_1.png)
 
 ```python
 plt.figure(figsize=(10,5))
@@ -4278,7 +4269,7 @@ corr = train_trn[['isFraud'] + dcols].corr()
 sns.heatmap(corr, annot=True, fmt='.2f')
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_114_1.png)
+![png](/notebook_files/analysis_114_1.png)
 
 ```python
 fig, ax = plt.subplots(1, 2, figsize=(15, 3))
@@ -4286,7 +4277,7 @@ train_trn.loc[train_trn['isFraud']==0, dcols].isnull().sum(axis=1).to_frame().hi
 train_trn.loc[train_trn['isFraud']==1, dcols].isnull().sum(axis=1).to_frame().hist(ax=ax[1], bins=20)
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_115_1.png)
+![png](/notebook_files/analysis_115_1.png)
 
 ### Dx & card
 
@@ -5036,23 +5027,23 @@ plotTrnCategoryRateBar('M8')
 plotTrnCategoryRateBar('M9')
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_121_0.png)
+![png](/notebook_files/analysis_121_0.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_121_1.png)
+![png](/notebook_files/analysis_121_1.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_121_2.png)
+![png](/notebook_files/analysis_121_2.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_121_3.png)
+![png](/notebook_files/analysis_121_3.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_121_4.png)
+![png](/notebook_files/analysis_121_4.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_121_5.png)
+![png](/notebook_files/analysis_121_5.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_121_6.png)
+![png](/notebook_files/analysis_121_6.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_121_7.png)
+![png](/notebook_files/analysis_121_7.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_121_8.png)
+![png](/notebook_files/analysis_121_8.png)
 
 ### Vxxx
 
@@ -5061,19 +5052,19 @@ for f in ['V1','V14','V41','V65','V88','V107','V305']:
     plotTrnCategoryRateBar(f)
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_123_0.png)
+![png](/notebook_files/analysis_123_0.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_123_1.png)
+![png](/notebook_files/analysis_123_1.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_123_2.png)
+![png](/notebook_files/analysis_123_2.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_123_3.png)
+![png](/notebook_files/analysis_123_3.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_123_4.png)
+![png](/notebook_files/analysis_123_4.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_123_5.png)
+![png](/notebook_files/analysis_123_5.png)
 
-![png](/images/ieee-cis-fraud-detection/analysis_123_6.png)
+![png](/notebook_files/analysis_123_6.png)
 
 ```python
 vsum0 = train_trn_f0[vcols].sum(axis=1)
@@ -5082,7 +5073,7 @@ plt.scatter(train_trn_f0['_ymd'], vsum0, s=5)
 plt.scatter(train_trn_f1['_ymd'], vsum1, s=5, c='r')
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_124_1.png)
+![png](/notebook_files/analysis_124_1.png)
 
 ```python
 m = train_trn_f1[vcols].describe().T['max']
@@ -5116,7 +5107,7 @@ plt.scatter(train_trn_f0['_ymd'], train_trn_f0['V160'], s=5)
 plt.scatter(train_trn_f1['_ymd'], train_trn_f1['V160'], s=5, c='r')
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_126_1.png)
+![png](/notebook_files/analysis_126_1.png)
 
 ```python
 vcols_1 = [f'V{i}' for i in range(1,160)]+[f'V{i}' for i in range(161,340)]
@@ -5126,7 +5117,7 @@ plt.scatter(train_trn_f0['_ymd'], vsum0, s=5)
 plt.scatter(train_trn_f1['_ymd'], vsum1, s=5, c='r')
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_127_1.png)
+![png](/notebook_files/analysis_127_1.png)
 
 ```python
 train_trn[vcols].isnull().sum() / len(train_trn)
@@ -5733,7 +5724,7 @@ train_trn.loc[train_trn['isFraud']==0, vcols].isnull().sum(axis=1).to_frame().hi
 train_trn.loc[train_trn['isFraud']==1, vcols].isnull().sum(axis=1).to_frame().hist(ax=ax[1], bins=20)
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_131_1.png)
+![png](/notebook_files/analysis_131_1.png)
 
 ```python
 train_trn[vcols].describe().T[['min','max']].T
@@ -5848,7 +5839,7 @@ vcol_pca = pca.fit_transform(train_trn[vcols].fillna(-1))
 print(vcol_pca.ndim)
 ```
 
-![png](/images/ieee-cis-fraud-detection/analysis_133_0.png)
+![png](/notebook_files/analysis_133_0.png)
 
 > 2
 
@@ -6145,7 +6136,7 @@ plt.ylabel('True Positive Rate')
 plt.grid(True)
 ```
 
-![png](/images/ieee-cis-fraud-detection/prediction_14_0.png)
+![png](/notebook_files/prediction_14_0.png)
 
 ```python
 # Plot feature importance
@@ -6163,7 +6154,7 @@ plt.title('Variable Importance')
 plt.show()
 ```
 
-![png](/images/ieee-cis-fraud-detection/prediction_15_0.png)
+![png](/notebook_files/prediction_15_0.png)
 
 ```python
 prediction = pd.DataFrame()
